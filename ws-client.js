@@ -1,4 +1,4 @@
-var ws = new WebSocket("ws://websocket-server-2018.herokuapp.com");
+var ws = new WebSocket("wss://websocket-server-2018.herokuapp.com");
 var info = ["Saab", "Volvo", "BMW"];
 ws.onopen = function(){
   setTitle("Connected");
