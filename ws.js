@@ -1,15 +1,15 @@
-var WebSocketServer = require('ws').Server,
-  wss = new WebSocketServer({port: 40510})
-var info = "test";
+var WebSocketServer = require('ws').Server;
+var  wss = new WebSocketServer({port: 3000});
+var beaconData = "hello";
+
 wss.on('connection', function (ws) {
-  ws.on('message', function (message) {
-    if(message != null){info = message
-    console.log('received: %s', message)}
-
+  ws.on('message', function(message){
+  if(message != null){
+    beaconData = message;
+  }
   });
-
   setInterval(
-    () => ws.send(JSON.stringify(info)),
-    1000
-  )
-})
+   () => ws.send(JSON.stringify(beaconData)),
+   1000
+)
+});
